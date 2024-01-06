@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
 // Structure pour représenter une question
 struct Question {
@@ -21,6 +20,7 @@ int main() {
     // Initialiser les scores pour chaque langage
     int scoreC = 0, scoreCS = 0, scorePython = 0, scoreJS = 0;
     int choix;
+
 
     // Afficher l'en-tête du programme
     printf("###############################################################################\n"
@@ -176,7 +176,7 @@ void LanguageCS(int* score)
     }
 
     // Afficher le score final
-    printf("Votre score final en C est : %d/5\n", *score);
+    printf("Votre score final en C# est : %d/5\n", *score);
 }
 // Fonction pour Initialiser les questions de language Python
 void LanguagePython(int* score)
@@ -231,7 +231,7 @@ void LanguagePython(int* score)
     }
 
     // Afficher le score final
-    printf("Votre score final en C est : %d/5\n", *score);
+    printf("Votre score final en Python est : %d/5\n", *score);
 }
 // Fonction pour Initialiser les questions de language JS
 void LanguageJS(int* score)
@@ -285,7 +285,7 @@ void LanguageJS(int* score)
     }
 
     // Afficher le score final
-    printf("Votre score final en C est : %d/5\n", *score);
+    printf("Votre score final en JavaScript est : %d/5\n", *score);
 
 }
 // Fonction pour poser une question et vérifier la réponse de l'utilisateur
@@ -310,7 +310,7 @@ int poserQuestion(struct Question q) {
 }
 // Fonction pour enregistrer les scores dans un fichier
 void enregistrerScore(char* langue, int score) {
-    FILE* fichier = fopen("scores.txt", "w");
+    FILE* fichier = fopen("scores.txt", "a");
 
     if (fichier == NULL) {
         printf("Erreur lors de l'ouverture du fichier.\n");
@@ -338,4 +338,13 @@ void lireAnciensScores() {
     }
 
     fclose(fichier);
+
+    // Effacer le contenu du fichier
+    fichier = fopen("scores.txt", "w");
+    if (fichier == NULL) {
+        printf("Erreur lors de l'effacement du fichier.\n");
+        exit(1);
+    }
+    fclose(fichier);
 }
+
