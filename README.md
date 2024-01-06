@@ -1,5 +1,5 @@
 Bonjour,
-Ce programme a été écrit par Mardi Fouad et Mohammed Oalid Moumni.
+Ce programme a été écrit par Mardi Fouad et Mohammed Oualid Moumni.
 
 Explications :
 
